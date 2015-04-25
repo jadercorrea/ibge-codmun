@@ -1,6 +1,6 @@
 class CodesController < ApplicationController
   def show
-    render json: find_codes
+    render json: find_codes.first
   end
 
   def index
