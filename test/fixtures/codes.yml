@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uf: MyString
+  nome_uf: MyString
+  mesorregiao_geografica: MyString
+  nome_mesorregiao: MyString
+  microrregiao_geografica: MyString
+  nome_microrregiao: MyString
+  municipio: MyString
+  nome_municipio: MyString
+  distrito: MyString
+  nome_distrito: MyString
+  subdistrito: MyString
+  nome_subdistrito: MyString
+
+two:
+  uf: MyString
+  nome_uf: MyString
+  mesorregiao_geografica: MyString
+  nome_mesorregiao: MyString
+  microrregiao_geografica: MyString
+  nome_microrregiao: MyString
+  municipio: MyString
+  nome_municipio: MyString
+  distrito: MyString
+  nome_distrito: MyString
+  subdistrito: MyString
+  nome_subdistrito: MyString
