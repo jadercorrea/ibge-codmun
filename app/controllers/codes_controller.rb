@@ -1,17 +1,18 @@
 class CodesController < ApplicationController
   def show
-    render json: find_code
+    render json: find_codes
   end
 
   def index
-    render json: Code.all
+    render json: find_codes
   end
 
   private
 
-  def find_code
+  def find_codes
     key = key_matcher.first
-    Code.find_by(key => params[key])
+    return Code.all if key.nil?
+    Code.where(key => params[key])
   end
 
   def key_matcher
