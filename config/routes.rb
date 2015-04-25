@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :codes, only: [:show, :index]
+  get 'codes/', to: 'codes#index'
+  get '/code/:nome_municipio', to: 'codes#show'
 end
