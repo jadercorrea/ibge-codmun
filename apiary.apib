@@ -1,0 +1,57 @@
+FORMAT: 1A
+HOST: http://ibge-codmun.herokuapp.com/
+
+# Codes API
+Codes API is a service for *IBGE*, brazilian statistics institution service, providing access to location's codes based on descriptions.
+
+# Group Codes
+Codes related resources of the **Codes API**.
+
+## Note [/code/{nome_municipio}]
+A single Code object with all its details.
+
++ Parameters
+    + nome_municipio (required, string, `Sao Paulo`) ... City name is listed on IBGE data as `nome_municipio`, The spelling of the city name must be exact. Returns the most likely code to area withou subregion.
+
+### Retrieve a Code [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            {"code":
+              {
+              "uf":"35","nome_uf":"Sao Paulo","mesorregiao_geografica":"3515","nome_mesorregiao":"Metropolitana de Sao Paulo","microrregiao_geografica":"35061","nome_microrregiao":"Sao Paulo","municipio":"50308","nome_municipio":"Sao Paulo","distrito":"01","nome_distrito":"Agua Rasa","subdistrito":"00","nome_subdistrito":""
+              }
+            }
+
+## Codes Collection [/codes]
+### List all Codes [GET]
++ Response 200 (application/json)
+
+        {"codes":
+          [{
+            "uf":"11","nome_uf":"Rondonia","mesorregiao_geografica":"1102","nome_mesorregiao":"Leste Rondoniense","microrregiao_geografica":"11004","nome_microrregiao":"Ji-Parana","municipio":"01435","nome_municipio":"Nova Uniao","distrito":"05","nome_distrito":"Nova Uniao","subdistrito":"00","nome_subdistrito":""
+            },{
+            "uf":"11","nome_uf":"Rondonia","mesorregiao_geografica":"1102","nome_mesorregiao":"Leste Rondoniense","microrregiao_geografica":"11004","nome_microrregiao":"Ji-Parana","municipio":"01559","nome_municipio":"Teixeiropolis","distrito":"05","nome_distrito":"Teixeiropolis","subdistrito":"00","nome_subdistrito":""
+          }]
+        }
+
+## Codes Collection with query [/codes/{data_attribute}{?value}]
+
++ Parameters
+    + data_attribute (required, string, `nome_distrito`) ... Code attributes allowed: `uf`, `nome_uf`, `mesorregiao_geografica`, `microrregiao_geografica`, `nome_microrregiao`, `municipio`, `nome_municipio`, `distrito`, `nome_distrito`, `subdistrito`, `nome_subdistrito`.
+    + value (required, string, `Matarazzo`) ... Returns a match collection.
+
+
+### List all Codes that match the query value [GET]
++ Response 200 (application/json)
+
+        {"codes":
+          [{
+            "uf":"43","nome_uf":"Rio Grande do Sul","mesorregiao_geografica":"4307","nome_mesorregiao":"Sudeste Rio-grandense","microrregiao_geografica":"43033","nome_microrregiao":"Pelotas","municipio":"14209","nome_municipio":"Pedro Osorio","distrito":"20","nome_distrito":"Matarazzo","subdistrito":"00","nome_subdistrito":""
+          }]
+        }
